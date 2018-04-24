@@ -146,6 +146,15 @@ extension TopEntriesViewController { // UITableViewDataSource
         
         return entryTableViewCell
     }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let entry = self.viewModel.entries[indexPath.row]
+        
+        if let url = entry.url {
+            self.presentImage(withURL: url)
+        }
+    }
 }
 
 extension TopEntriesViewController: EntryTableViewCellDelegate {
