@@ -11,6 +11,14 @@ class TopEntriesViewController: UITableViewController {
     let moreButton = UIButton(type: .system)
     var urlToDisplay: URL?
 
+    @IBOutlet var filterEighteenSwitch: UISwitch!
+    
+    @IBAction func filterEignteenAction(_ sender: UISwitch) {
+        filterEighteenSwitch.isOn = sender.isOn
+        self.tableView.reloadData()
+    }
+    
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -134,14 +142,14 @@ extension TopEntriesViewController { // UITableViewDataSource
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.viewModel.entries.count
+        return self.returnCorrectArrayfromModel().count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let entryTableViewCell = tableView.dequeueReusableCell(withIdentifier: EntryTableViewCell.cellId, for: indexPath as IndexPath) as! EntryTableViewCell
         
-        entryTableViewCell.entry = self.viewModel.entries[indexPath.row]
+        entryTableViewCell.entry = self.returnCorrectArrayfromModel()[indexPath.row]
         entryTableViewCell.delegate = self
         
         return entryTableViewCell
@@ -149,16 +157,28 @@ extension TopEntriesViewController { // UITableViewDataSource
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let entry = self.viewModel.entries[indexPath.row]
+        let entry = self.returnCorrectArrayfromModel()[indexPath.row]
         
         if let url = entry.url {
             self.presentImage(withURL: url)
         }
     }
+    
+    
+    //MARK: return filtered vs unfiltered array
+    private func returnCorrectArrayfromModel() -> [EntryViewModel] {
+        switch filterEighteenSwitch.isOn {
+        case true:
+            return self.viewModel.filteredEntries
+        case false:
+            return self.viewModel.entries
+        }
+        
+    }
 }
 
 extension TopEntriesViewController: EntryTableViewCellDelegate {
- 
+    //Mark need to fix for filtered vs unfiltered display
     func presentImage(withURL url: URL) {
         
         self.urlToDisplay = url

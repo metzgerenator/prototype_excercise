@@ -8,7 +8,7 @@ class EntryViewModel {
 
     let title: String
     let author: String
-    
+    let isover18: Bool
     var age: String {
         
         get {
@@ -37,7 +37,8 @@ class EntryViewModel {
             self.hasError = true
             self.errorMessage = "Missing required field"
         }
-
+        
+        self.isover18 = model.isOverEignteen ?? false
         self.title = model.title ?? "Untitled"
         self.author = model.author ?? "Anonymous"
         self.thumbnailURL = model.thumbnailURL
@@ -45,7 +46,7 @@ class EntryViewModel {
         self.commentsCount = " \(model.commentsCount ?? 0) " // Leave space for the rounded corner. I know, not cool, but does the trick.
         self.creation = model.creation
         self.url = model.url
-
+        
         if model.title == nil ||
             model.author == nil ||
             model.creation == nil ||

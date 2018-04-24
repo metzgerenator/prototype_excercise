@@ -5,6 +5,7 @@ class TopEntriesViewModel {
     var hasError = false
     var errorMessage: String? = nil
     var entries = [EntryViewModel]()
+    var filteredEntries = [EntryViewModel]()
 
     private let client: Client
     private var afterTag: String? = nil
@@ -46,6 +47,10 @@ class TopEntriesViewModel {
                     return entryViewModel
                 }
             
+            
+            //MARK: appending to filtered entries here
+            let newEntriesFiltered = newEntries.filter{$0.isover18 != true}
+            strongSelf.filteredEntries.append(contentsOf: newEntriesFiltered)
             strongSelf.entries.append(contentsOf: newEntries)
             
                 strongSelf.hasError = false
