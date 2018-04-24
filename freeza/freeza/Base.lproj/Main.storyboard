@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Top-->
+        <!--Top Entries View Controller-->
         <scene sceneID="dpn-Uo-3JQ">
             <objects>
                 <tableViewController id="2Fm-PT-q0X" customClass="TopEntriesViewController" customModule="freeza" customModuleProvider="target" sceneMemberID="viewController">
@@ -104,18 +104,31 @@
                             <outlet property="delegate" destination="2Fm-PT-q0X" id="gUy-dD-Evp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Top" id="ues-u9-1rD">
+                    <navigationItem key="navigationItem" id="ues-u9-1rD">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="0bu-2M-4S9">
                             <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="Efz-cc-L1K">
                                 <rect key="frame" x="16" y="6.5" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="filterEignteenAction:" destination="2Fm-PT-q0X" eventType="valueChanged" id="fb3-rO-zvM"/>
+                                    <action selector="filterEighteenAction:" destination="2Fm-PT-q0X" eventType="valueChanged" id="9n4-Ae-oAW"/>
                                 </connections>
                             </switch>
                         </barButtonItem>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="5vT-k6-ujv">
+                            <rect key="frame" x="118" y="7" width="139" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Top"/>
+                                <segment title="Favorites"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentTapped:" destination="2Fm-PT-q0X" eventType="valueChanged" id="rk3-3G-zgE"/>
+                            </connections>
+                        </segmentedControl>
                     </navigationItem>
                     <connections>
+                        <outlet property="favAndTopSegmentedControl" destination="5vT-k6-ujv" id="bHc-wR-J7s"/>
                         <outlet property="filterEighteenSwitch" destination="Efz-cc-L1K" id="5wp-Iy-GM8"/>
                         <segue destination="aCN-S2-Zc5" kind="show" identifier="showImageSegue" id="kwL-93-PBZ"/>
                     </connections>

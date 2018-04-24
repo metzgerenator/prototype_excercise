@@ -13,7 +13,15 @@ class TopEntriesViewController: UITableViewController {
 
     @IBOutlet var filterEighteenSwitch: UISwitch!
     
-    @IBAction func filterEignteenAction(_ sender: UISwitch) {
+    @IBOutlet var favAndTopSegmentedControl: UISegmentedControl!
+    
+    @IBAction func segmentTapped(_ sender: UISegmentedControl) {
+    }
+    
+   
+    
+    
+    @IBAction func filterEighteenAction(_ sender: UISwitch) {
         filterEighteenSwitch.isOn = sender.isOn
         self.tableView.reloadData()
     }
