@@ -43,13 +43,9 @@ extension Date {
             
             return "A day ago"
 
-        } else if secondsAgo < 6 * 24 * 60 * 60 {
+        }  else {
             
-            return "\(secondsAgo / (24 * 60 * 60)) days ago"
-            
-        } else {
-            
-            return "A long time ago"
+            return "Older"
         }
     }
 }
