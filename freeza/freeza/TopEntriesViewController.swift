@@ -10,6 +10,7 @@ class TopEntriesViewController: UITableViewController {
     let tableFooterView = UIView()
     let moreButton = UIButton(type: .system)
     var urlToDisplay: URL?
+    private var saveToDisDelegate: SaveToDisDelegate?
 
     @IBOutlet var filterEighteenSwitch: UISwitch!
     
@@ -35,6 +36,10 @@ class TopEntriesViewController: UITableViewController {
         
         self.configureViews()
         self.loadEntries()
+        
+        saveToDisDelegate = self
+        
+        
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -201,7 +206,7 @@ extension TopEntriesViewController { // UITableViewDataSource
 }
 
 //MARK: add and remove from memeory
-extension TopEntriesViewController: EntryTableViewCellDelegate {
+extension TopEntriesViewController: EntryTableViewCellDelegate, SaveToDisDelegate {
     func entrySelectedforFavorite(entry: EntryViewModel) {
         let isAlreadySelected = self.viewModel.favoriteEntries.contains{$0.title == entry.title}
         switch isAlreadySelected {
@@ -211,6 +216,7 @@ extension TopEntriesViewController: EntryTableViewCellDelegate {
         case false:
             self.viewModel.favoriteEntries.append(entry)
         }
+        saveToDisDelegate?.saveStringArraytoUserDefaults(array: self.viewModel.favoriteEntries.map{$0.title})
         self.tableView.reloadData()
         
         
@@ -221,4 +227,6 @@ extension TopEntriesViewController: EntryTableViewCellDelegate {
         self.urlToDisplay = url
         self.performSegue(withIdentifier: TopEntriesViewController.showImageSegueIdentifier, sender: self)
     }
+    
+    
 }

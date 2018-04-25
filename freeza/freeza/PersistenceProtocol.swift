@@ -8,24 +8,28 @@
 
 import Foundation
 
-protocol saveToDisDelegate {
+protocol SaveToDisDelegate {
     
 }
 
-extension saveToDisDelegate {
+extension SaveToDisDelegate {
     func saveStringArraytoUserDefaults(array: [String]) {
         let defaults = UserDefaults.standard
-        defaults.set(array, forKey: "savedTitles")
         
+        defaults.removeObject(forKey: "savedTitles")
+        if !array.isEmpty {
+            defaults.set(array, forKey: "savedTitles")
+        }
+
     }
 }
 
 
-protocol retriveFromDiskDataSource  {
+protocol RetriveFromDiskDataSource  {
  
 }
 
-extension retriveFromDiskDataSource {
+extension RetriveFromDiskDataSource {
     
     func retriveTitlesFromDefaults() -> [String] {
         let defaults = UserDefaults.standard

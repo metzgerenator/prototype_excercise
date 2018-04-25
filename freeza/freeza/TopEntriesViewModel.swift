@@ -10,10 +10,13 @@ class TopEntriesViewModel {
 
     private let client: Client
     private var afterTag: String? = nil
+    
+    private var retriveFromDiskDataSource: RetriveFromDiskDataSource?
 
     init(withClient client: Client) {
         
         self.client = client
+        self.retriveFromDiskDataSource = self
     }
     
     func loadEntries(withCompletion completionHandler: @escaping () -> ()) {
@@ -50,10 +53,12 @@ class TopEntriesViewModel {
             
             
             //MARK: appending to filtered entries here
+            
             let newEntriesFiltered = newEntries.filter{$0.isover18 != true}
             strongSelf.filteredEntries.append(contentsOf: newEntriesFiltered)
             strongSelf.entries.append(contentsOf: newEntries)
-            
+            //MARK: loading saved posts
+            self?.loadSavedPosts()
                 strongSelf.hasError = false
                 strongSelf.errorMessage = nil
 
@@ -79,3 +84,23 @@ class TopEntriesViewModel {
         })
     }
 }
+
+
+
+extension TopEntriesViewModel: RetriveFromDiskDataSource {
+    
+    private func loadSavedPosts() {
+        guard let savedTitles = retriveFromDiskDataSource?.retriveTitlesFromDefaults() else {return}
+        for savedTitle in savedTitles {
+            self.favoriteEntries = self.favoriteEntries + self.entries.filter{$0.title == savedTitle}
+        }
+        
+    }
+    
+    
+    
+}
+
+
+
+
