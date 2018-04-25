@@ -92,7 +92,11 @@ extension TopEntriesViewModel: RetriveFromDiskDataSource {
     private func loadSavedPosts() {
         guard let savedTitles = retriveFromDiskDataSource?.retriveTitlesFromDefaults() else {return}
         for savedTitle in savedTitles {
-            self.favoriteEntries = self.favoriteEntries + self.entries.filter{$0.title == savedTitle}
+            if !self.favoriteEntries.contains{$0.title == savedTitle} {
+                self.favoriteEntries = self.favoriteEntries + self.entries.filter{$0.title == savedTitle}
+            }
+            
+            
         }
         
     }
