@@ -28,7 +28,7 @@ class EntryTableViewCell: UITableViewCell {
     @IBOutlet private weak var entryTitleLabel: UILabel!
     
     
-    @IBOutlet var addToFavoritesButton: UIButton!
+    @IBOutlet private weak var addToFavoritesButton: UIButton!
     
     @IBAction func AddtoFavoritesAction(_ sender: Any) {
         if let entryTosend = entry {
