@@ -10,6 +10,7 @@ class TopEntriesViewController: UITableViewController {
     let tableFooterView = UIView()
     let moreButton = UIButton(type: .system)
     var urlToDisplay: URL?
+    var NSFWLabel = UILabel()
     private var saveToDisDelegate: SaveToDisDelegate?
 
     @IBOutlet var filterEighteenSwitch: UISwitch!
@@ -26,6 +27,12 @@ class TopEntriesViewController: UITableViewController {
     
     @IBAction func filterEighteenAction(_ sender: UISwitch) {
         filterEighteenSwitch.isOn = sender.isOn
+        switch sender.isOn {
+        case true:
+            NSFWLabel.text = "SAFE"
+        case false:
+            NSFWLabel.text = "NSFW"
+        }
         self.tableView.reloadData()
     }
     
@@ -39,12 +46,6 @@ class TopEntriesViewController: UITableViewController {
         
         saveToDisDelegate = self
         
-        // add label
-        if let navbar = self.navigationController?.navigationBar {
-            let label = UILabel(frame: CGRect(x: 69, y: 0, width: navbar.frame.width/2, height: navbar.frame.height))
-            label.text = "NSFW"
-            self.navigationController?.navigationBar.addSubview(label)
-        }
         
         
         
@@ -100,8 +101,14 @@ class TopEntriesViewController: UITableViewController {
     
     private func configureViews() {
 
-        func configureActivityIndicatorView() {
-            
+        func configureNavigationBar() {
+            //add configurable label
+            if let navbar = self.navigationController?.navigationBar {
+                NSFWLabel = UILabel(frame: CGRect(x: 69, y: 0, width: navbar.frame.width/2, height: navbar.frame.height))
+                NSFWLabel.text = "SAFE"
+                self.navigationController?.navigationBar.addSubview(NSFWLabel)
+            }
+            //add actifity indicator
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.activityIndicatorView)
         }
 
@@ -135,7 +142,7 @@ class TopEntriesViewController: UITableViewController {
             self.toolbarItems = [errorItem, flexSpaceItem, retryItem, fixedSpaceItem, closeItem]
         }
         
-        configureActivityIndicatorView()
+        configureNavigationBar()
         configureTableView()
         configureToolbar()
     }
