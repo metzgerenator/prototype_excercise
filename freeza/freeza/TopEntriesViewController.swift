@@ -16,7 +16,7 @@ class TopEntriesViewController: UITableViewController {
     @IBOutlet var favAndTopSegmentedControl: UISegmentedControl!
     
     @IBAction func segmentTapped(_ sender: UISegmentedControl) {
-        
+        self.tableView.reloadData()
         
     }
     
@@ -175,12 +175,17 @@ extension TopEntriesViewController { // UITableViewDataSource
     }
     
     
-    //MARK: return filtered vs unfiltered array
+    //MARK: return filtered vs unfiltered array.  Also checking for Favorite Entries 
     private func returnCorrectArrayfromModel() -> [EntryViewModel] {
-        switch filterEighteenSwitch.isOn {
-        case true:
+
+        switch (filterEighteenSwitch.isOn, favAndTopSegmentedControl.selectedSegmentIndex == 1 ) {
+        case (true, true):
+            return self.viewModel.favoriteEntries.filter{$0.isover18 != true}
+        case (true, false):
             return self.viewModel.filteredEntries
-        case false:
+        case(false, true):
+            return self.viewModel.favoriteEntries
+        case(false, false):
             return self.viewModel.entries
         }
         
