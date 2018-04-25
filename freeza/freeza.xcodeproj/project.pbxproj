@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2732A7502090CB490068D08E /* PersistenceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2732A74F2090CB490068D08E /* PersistenceProtocol.swift */; };
 		31AA46D81D0B419B006C42BA /* RedditClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA46D71D0B419B006C42BA /* RedditClient.swift */; };
 		31AA46DA1D0B4249006C42BA /* EntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA46D91D0B4249006C42BA /* EntryModel.swift */; };
 		31AA46DF1D0B43A0006C42BA /* RedditEntryModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA46DE1D0B43A0006C42BA /* RedditEntryModelTest.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2732A74F2090CB490068D08E /* PersistenceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceProtocol.swift; sourceTree = "<group>"; };
 		31AA46D71D0B419B006C42BA /* RedditClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditClient.swift; sourceTree = "<group>"; };
 		31AA46D91D0B4249006C42BA /* EntryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryModel.swift; sourceTree = "<group>"; };
 		31AA46DE1D0B43A0006C42BA /* RedditEntryModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditEntryModelTest.swift; sourceTree = "<group>"; };
@@ -78,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2732A74E2090CAD60068D08E /* Save to memory protocol */ = {
+			isa = PBXGroup;
+			children = (
+				2732A74F2090CB490068D08E /* PersistenceProtocol.swift */,
+			);
+			name = "Save to memory protocol";
+			sourceTree = "<group>";
+		};
 		31AA46D61D0B4183006C42BA /* Connectivity */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +183,7 @@
 		31CAC1451D0B412600E553AC /* freeza */ = {
 			isa = PBXGroup;
 			children = (
+				2732A74E2090CAD60068D08E /* Save to memory protocol */,
 				31AA46D61D0B4183006C42BA /* Connectivity */,
 				31AA46FC1D0C5480006C42BA /* Storyboards */,
 				31AA46FB1D0C5470006C42BA /* Support */,
@@ -303,6 +314,7 @@
 				31AA46E91D0B9618006C42BA /* NSDate+AgeFormatter.swift in Sources */,
 				31E7F2A91D0CFAFC00C7CA70 /* URLViewController.swift in Sources */,
 				31AA46FE1D0C54A5006C42BA /* EntryTableViewCell.swift in Sources */,
+				2732A7502090CB490068D08E /* PersistenceProtocol.swift in Sources */,
 				31AA46F91D0C526D006C42BA /* TopEntriesViewController.swift in Sources */,
 				31AA46D81D0B419B006C42BA /* RedditClient.swift in Sources */,
 			);
