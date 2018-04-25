@@ -118,35 +118,37 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="ues-u9-1rD">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" title="Test Title" style="plain" id="0bu-2M-4S9">
-                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="Efz-cc-L1K">
-                                <rect key="frame" x="16" y="6.5" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="filterEighteenAction:" destination="2Fm-PT-q0X" eventType="valueChanged" id="9n4-Ae-oAW"/>
-                                </connections>
-                            </switch>
-                        </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem title="Item" id="cV0-w7-vns"/>
-                            <barButtonItem style="plain" id="udv-YN-yel">
-                                <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="5vT-k6-ujv">
-                                    <rect key="frame" x="178" y="7" width="139" height="30"/>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Test Title" style="plain" id="0bu-2M-4S9">
+                                <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="Efz-cc-L1K">
+                                    <rect key="frame" x="16" y="6.5" width="51" height="31"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <segments>
-                                        <segment title="Top"/>
-                                        <segment title="Favorites"/>
-                                    </segments>
                                     <connections>
-                                        <action selector="segmentTapped:" destination="2Fm-PT-q0X" eventType="valueChanged" id="rk3-3G-zgE"/>
+                                        <action selector="filterEighteenAction:" destination="2Fm-PT-q0X" eventType="valueChanged" id="9n4-Ae-oAW"/>
                                     </connections>
-                                </segmentedControl>
+                                </switch>
                             </barButtonItem>
-                        </rightBarButtonItems>
+                            <barButtonItem enabled="NO" title="SAFE" id="2Vh-pJ-FaM">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="YXR-yg-pFp">
+                            <rect key="frame" x="125" y="7" width="139" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Top"/>
+                                <segment title="Favorites"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentTapped:" destination="2Fm-PT-q0X" eventType="valueChanged" id="ZMB-yr-NRX"/>
+                            </connections>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="cV0-w7-vns"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="favAndTopSegmentedControl" destination="5vT-k6-ujv" id="bHc-wR-J7s"/>
+                        <outlet property="favAndTopSegmentedControl" destination="YXR-yg-pFp" id="6zt-Mx-4Oj"/>
                         <outlet property="filterEighteenSwitch" destination="Efz-cc-L1K" id="5wp-Iy-GM8"/>
+                        <outlet property="leftBarItem" destination="2Vh-pJ-FaM" id="cXO-Ej-jP3"/>
                         <segue destination="aCN-S2-Zc5" kind="show" identifier="showImageSegue" id="kwL-93-PBZ"/>
                     </connections>
                 </tableViewController>

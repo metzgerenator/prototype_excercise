@@ -10,7 +10,8 @@ class TopEntriesViewController: UITableViewController {
     let tableFooterView = UIView()
     let moreButton = UIButton(type: .system)
     var urlToDisplay: URL?
-    var NSFWLabel = UILabel()
+    
+    @IBOutlet var leftBarItem: UIBarButtonItem!
     private var saveToDisDelegate: SaveToDisDelegate?
 
     @IBOutlet var filterEighteenSwitch: UISwitch!
@@ -29,9 +30,9 @@ class TopEntriesViewController: UITableViewController {
         filterEighteenSwitch.isOn = sender.isOn
         switch sender.isOn {
         case true:
-            NSFWLabel.text = "SAFE"
+            leftBarItem.title = "SAFE"
         case false:
-            NSFWLabel.text = "NSFW"
+            leftBarItem.title = "NSFW"
         }
         self.tableView.reloadData()
     }
@@ -102,13 +103,7 @@ class TopEntriesViewController: UITableViewController {
     private func configureViews() {
 
         func configureNavigationBar() {
-            //add configurable label
-            if let navbar = self.navigationController?.navigationBar {
-                NSFWLabel = UILabel(frame: CGRect(x: 69, y: 0, width: navbar.frame.width/2, height: navbar.frame.height))
-                NSFWLabel.text = "SAFE"
-                self.navigationController?.navigationBar.addSubview(NSFWLabel)
-            }
-            //add actifity indicator
+
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.activityIndicatorView)
         }
 
