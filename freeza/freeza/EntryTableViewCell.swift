@@ -3,6 +3,8 @@ import UIKit
 protocol EntryTableViewCellDelegate {
     
     func presentImage(withURL url: URL)
+    func entrySelectedforFavorite(entry: EntryViewModel)
+    
 }
 
 class EntryTableViewCell: UITableViewCell {
@@ -29,7 +31,9 @@ class EntryTableViewCell: UITableViewCell {
     @IBOutlet var addToFavoritesButton: UIButton!
     
     @IBAction func AddtoFavoritesAction(_ sender: Any) {
-        
+        if let entryTosend = entry {
+            delegate?.entrySelectedforFavorite(entry: entryTosend)
+        }
         
     }
     

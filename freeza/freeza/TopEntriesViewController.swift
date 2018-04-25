@@ -188,6 +188,20 @@ extension TopEntriesViewController { // UITableViewDataSource
 }
 
 extension TopEntriesViewController: EntryTableViewCellDelegate {
+    func entrySelectedforFavorite(entry: EntryViewModel) {
+        let isAlreadySelected = self.viewModel.favoriteEntries.contains{$0.title == entry.title}
+        switch isAlreadySelected {
+        case true:
+            self.viewModel.favoriteEntries = self.viewModel.favoriteEntries.filter{$0.title != entry.title}
+            
+        case false:
+            self.viewModel.favoriteEntries.append(entry)
+        }
+        self.tableView.reloadData()
+        
+        
+    }
+    
     func presentImage(withURL url: URL) {
         
         self.urlToDisplay = url
