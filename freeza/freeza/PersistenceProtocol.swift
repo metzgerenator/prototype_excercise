@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol SaveToDisDelegate {
+protocol SaveToDiskDelegate {
     
 }
 
-extension SaveToDisDelegate {
+extension SaveToDiskDelegate {
     func saveStringArraytoUserDefaults(array: [String]) {
         let defaults = UserDefaults.standard
         

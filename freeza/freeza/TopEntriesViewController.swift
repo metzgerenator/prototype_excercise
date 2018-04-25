@@ -12,7 +12,7 @@ class TopEntriesViewController: UITableViewController {
     var urlToDisplay: URL?
     
     @IBOutlet var leftBarItem: UIBarButtonItem!
-    private var saveToDisDelegate: SaveToDisDelegate?
+    private var saveToDisDelegate: SaveToDiskDelegate?
 
     @IBOutlet var filterEighteenSwitch: UISwitch!
     
@@ -216,7 +216,7 @@ extension TopEntriesViewController { // UITableViewDataSource
 }
 
 //MARK: add and remove from memeory
-extension TopEntriesViewController: EntryTableViewCellDelegate, SaveToDisDelegate {
+extension TopEntriesViewController: EntryTableViewCellDelegate, SaveToDiskDelegate {
     func entrySelectedforFavorite(entry: EntryViewModel) {
         let isAlreadySelected = self.viewModel.favoriteEntries.contains{$0.title == entry.title}
         switch isAlreadySelected {
