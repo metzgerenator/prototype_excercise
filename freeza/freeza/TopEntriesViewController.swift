@@ -158,8 +158,14 @@ extension TopEntriesViewController { // UITableViewDataSource
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let entryTableViewCell = tableView.dequeueReusableCell(withIdentifier: EntryTableViewCell.cellId, for: indexPath as IndexPath) as! EntryTableViewCell
+        let entry = self.returnCorrectArrayfromModel()[indexPath.row]
+        entryTableViewCell.entry = entry
         
-        entryTableViewCell.entry = self.returnCorrectArrayfromModel()[indexPath.row]
+        if (self.viewModel.favoriteEntries.contains{$0.title == entry.title}) {
+            entryTableViewCell.addToFavoritesButton.setTitle("Starred", for: .normal)
+        } else {
+            entryTableViewCell.addToFavoritesButton.setTitle("Add to Favorites", for: .normal)
+        }
         entryTableViewCell.delegate = self
         
         return entryTableViewCell
@@ -190,6 +196,8 @@ extension TopEntriesViewController { // UITableViewDataSource
         }
         
     }
+    
+    
 }
 
 extension TopEntriesViewController: EntryTableViewCellDelegate {
