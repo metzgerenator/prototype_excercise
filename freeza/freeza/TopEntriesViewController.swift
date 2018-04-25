@@ -16,6 +16,8 @@ class TopEntriesViewController: UITableViewController {
     @IBOutlet var favAndTopSegmentedControl: UISegmentedControl!
     
     @IBAction func segmentTapped(_ sender: UISegmentedControl) {
+        
+        
     }
     
    
@@ -186,7 +188,6 @@ extension TopEntriesViewController { // UITableViewDataSource
 }
 
 extension TopEntriesViewController: EntryTableViewCellDelegate {
-    //Mark need to fix for filtered vs unfiltered display
     func presentImage(withURL url: URL) {
         
         self.urlToDisplay = url

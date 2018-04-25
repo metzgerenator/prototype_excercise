@@ -6,6 +6,7 @@ class TopEntriesViewModel {
     var errorMessage: String? = nil
     var entries = [EntryViewModel]()
     var filteredEntries = [EntryViewModel]()
+    var favoriteEntries = [EntryViewModel]()
 
     private let client: Client
     private var afterTag: String? = nil

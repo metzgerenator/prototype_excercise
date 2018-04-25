@@ -72,6 +72,13 @@
                                                 <action selector="thumbnailButtonTapped:" destination="4pU-iB-mch" eventType="touchUpInside" id="QqG-ae-FYm"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mi-LC-NWt">
+                                            <rect key="frame" x="248" y="41" width="111" height="30"/>
+                                            <state key="normal" title="Add to Favorites"/>
+                                            <connections>
+                                                <action selector="AddtoFavoritesAction:" destination="4pU-iB-mch" eventType="touchUpInside" id="gOX-78-4A3"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="qNH-q5-Qjw" firstAttribute="centerY" secondItem="LXD-aI-wb0" secondAttribute="centerY" id="3W5-kr-BTM"/>
@@ -81,16 +88,20 @@
                                         <constraint firstItem="4kO-7S-4fe" firstAttribute="top" secondItem="qYg-we-90s" secondAttribute="topMargin" id="KNi-tI-pkw"/>
                                         <constraint firstAttribute="bottom" secondItem="ZK0-mz-4hc" secondAttribute="bottom" constant="11" id="ORI-w6-Hv0"/>
                                         <constraint firstItem="ZK0-mz-4hc" firstAttribute="leading" secondItem="4kO-7S-4fe" secondAttribute="leading" id="UQR-D9-6WJ"/>
+                                        <constraint firstItem="2mi-LC-NWt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qYg-we-90s" secondAttribute="leading" constant="20" symbolic="YES" id="Vir-ab-iJt"/>
                                         <constraint firstItem="4kO-7S-4fe" firstAttribute="leading" secondItem="qYg-we-90s" secondAttribute="leadingMargin" id="Xfj-aJ-TmR"/>
+                                        <constraint firstItem="ZK0-mz-4hc" firstAttribute="top" secondItem="2mi-LC-NWt" secondAttribute="bottom" constant="8" symbolic="YES" id="a26-Uz-U0z"/>
                                         <constraint firstItem="LXD-aI-wb0" firstAttribute="leading" secondItem="4kO-7S-4fe" secondAttribute="trailing" constant="8" id="arv-Hg-qLE"/>
                                         <constraint firstItem="LXD-aI-wb0" firstAttribute="top" secondItem="4kO-7S-4fe" secondAttribute="top" id="lhI-Yc-1tN"/>
                                         <constraint firstItem="qNH-q5-Qjw" firstAttribute="leading" secondItem="LXD-aI-wb0" secondAttribute="trailing" constant="4" id="n6N-gM-wRl"/>
                                         <constraint firstItem="qNH-q5-Qjw" firstAttribute="trailing" secondItem="qYg-we-90s" secondAttribute="trailingMargin" id="p6l-01-fMF"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="yrj-32-1Xg" secondAttribute="trailing" id="pyC-aE-jjO"/>
                                         <constraint firstItem="ZK0-mz-4hc" firstAttribute="top" secondItem="4kO-7S-4fe" secondAttribute="bottom" constant="8" id="v85-0u-jdn"/>
+                                        <constraint firstItem="2mi-LC-NWt" firstAttribute="trailing" secondItem="yrj-32-1Xg" secondAttribute="trailing" id="vdU-rl-nVi"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="addToFavoritesButton" destination="2mi-LC-NWt" id="5Ez-fI-d01"/>
                                     <outlet property="ageLabel" destination="yrj-32-1Xg" id="k0v-59-l77"/>
                                     <outlet property="authorLabel" destination="LXD-aI-wb0" id="R89-pb-zz9"/>
                                     <outlet property="commentsCountLabel" destination="qNH-q5-Qjw" id="7W9-dc-7qU"/>

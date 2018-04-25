@@ -25,6 +25,15 @@ class EntryTableViewCell: UITableViewCell {
     @IBOutlet private weak var ageLabel: UILabel!
     @IBOutlet private weak var entryTitleLabel: UILabel!
     
+    
+    @IBOutlet var addToFavoritesButton: UIButton!
+    
+    @IBAction func AddtoFavoritesAction(_ sender: Any) {
+        
+        
+    }
+    
+    
     override func layoutSubviews() {
         
         super.layoutSubviews()
