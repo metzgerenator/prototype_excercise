@@ -167,9 +167,9 @@ extension TopEntriesViewController { // UITableViewDataSource
         entryTableViewCell.entry = entry
         
         if (self.viewModel.favoriteEntries.contains{$0.title == entry.title}) {
-            entryTableViewCell.addToFavoritesButton.setTitle("Saved", for: .normal)
+            entryTableViewCell.addToFavoritesButton.setTitle("⭐️", for: .normal)
         } else {
-            entryTableViewCell.addToFavoritesButton.setTitle("Save", for: .normal)
+            entryTableViewCell.addToFavoritesButton.setTitle("➕", for: .normal)
         }
         entryTableViewCell.delegate = self
         
