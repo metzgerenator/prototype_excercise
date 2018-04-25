@@ -39,6 +39,14 @@ class TopEntriesViewController: UITableViewController {
         
         saveToDisDelegate = self
         
+        // add label
+        if let navbar = self.navigationController?.navigationBar {
+            let label = UILabel(frame: CGRect(x: 69, y: 0, width: navbar.frame.width/2, height: navbar.frame.height))
+            label.text = "NSFW"
+            self.navigationController?.navigationBar.addSubview(label)
+        }
+        
+        
         
     }
 
