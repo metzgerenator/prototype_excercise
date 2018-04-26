@@ -51,12 +51,12 @@ class AgeFormatterTests: XCTestCase {
         XCTAssertEqual(aDayAndHalfAgo.age(sinceDate: presentTime), "A day ago")
 
         let fiveDaysAndHalfAgo = Date(timeInterval: -5 * 24 * 60 * 60, since: presentTime)
-        XCTAssertEqual(fiveDaysAndHalfAgo.age(sinceDate: presentTime), "5 days ago")
+        XCTAssertEqual(fiveDaysAndHalfAgo.age(sinceDate: presentTime), "Older")
 
         let sixDaysAgo = Date(timeInterval: -6 * 24 * 60 * 60, since: presentTime)
-        XCTAssertEqual(sixDaysAgo.age(sinceDate: presentTime), "A long time ago")
+        XCTAssertEqual(sixDaysAgo.age(sinceDate: presentTime), "Older")
 
         let tenDaysAgo = Date(timeInterval: -10 * 24 * 60 * 60, since: presentTime)
-        XCTAssertEqual(tenDaysAgo.age(sinceDate: presentTime), "A long time ago")
+        XCTAssertEqual(tenDaysAgo.age(sinceDate: presentTime), "Older")
     }
 }
