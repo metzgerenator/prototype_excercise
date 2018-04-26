@@ -38,7 +38,6 @@ struct EntryModel {
         self.thumbnailURL = urlFromDictionary(withAttributeName: "thumbnail")
         self.commentsCount = dictionary["num_comments"] as? Int
         self.url = urlFromDictionary(withAttributeName: "url")
-
         self.isOverEignteen = dictionary["over_18"] as? Bool
         
     }
