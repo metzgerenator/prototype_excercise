@@ -28,32 +28,20 @@ class freezaUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testSaveAndLoad() {
+    
+    
+    
+    func testMoreButtonAfterFavorites() {
         
         let tablesQuery = app.tables
         let navbar = app.navigationBars["freeza.TopEntriesView"]
         let favoriteButton = navbar/*@START_MENU_TOKEN@*/.buttons["Favorites"]/*[[".staticTexts.buttons[\"Favorites\"]",".buttons[\"Favorites\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         favoriteButton.tap()
-        
         let moreButton = tablesQuery.buttons["More..."]
-        moreButton.tap()
+        XCTAssert(moreButton.isHittable, "button not present")
         
+
     }
-    
-    
-    func testLoadMore() {
-        
-        let tablesQuery = app.tables
-        let moreButton = tablesQuery.buttons["More..."]
-        moreButton.tap()
-        let numberOfCells = tablesQuery.cells.count
-        XCTAssert(numberOfCells > 2, "call did not work")
-        
-        
-        
-    }
-    
-    
     
 
 }
